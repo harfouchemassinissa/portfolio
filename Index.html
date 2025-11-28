@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Massinissa Charif Harfouche</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-section: #020617;
+      --card: #0b1120;
+      --border: #1f2937;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #3b82f6;
+      --accent-soft: #1d4ed8;
+      --radius-lg: 16px;
+      --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.55);
+      --transition: 0.18s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #020617 0, #000000 70%);
+      color: var(--text);
+    }
+
+    main {
+      width: 100%;
+    }
+
+    .section {
+      padding: 3rem clamp(1.5rem, 5vw, 4rem);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-section);
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 1.8rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 0;
+      color: var(--text);
+    }
+
+    .section-subtitle {
+      margin-top: 0.4rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 600px;
+    }
+
+    /* ===== Navbar ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.7);
+    }
+
+    .nav-inner {
+      width: 100%;
+      padding: 0.7rem clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    /* Logo 3D génie électrique (éclair + circuit) */
+    .logo-3d {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 20%, #38bdf8 0, transparent 45%),
+        radial-gradient(circle at 70% 80%, #1d4ed8 0, #020617 60%);
+      box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.9),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        inset 0 -4px 10px rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-3d::before {
+      content: "";
+      position: absolute;
+      inset: 14%;
+      border-radius: 50%;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow:
+        inset 0 0 18px rgba(15, 23, 42, 0.95),
+        0 0 10px rgba(56, 189, 248, 0.25);
+    }
+
+    .logo-3d svg {
+      width: 78%;
+      height: 78%;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 3px 6px rgba(15, 23, 42, 0.9));
+    }
+
+    .logo-3d--lg {
+      width: 52px;
+      height: 52px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-text span:first-child {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .brand-text span:last-child {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      position: relative;
+      padding-bottom: 0.1rem;
+      transition: color var(--transition);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--accent);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: #f9fafb;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      color: #f9fafb !important;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-cta::after {
+      display: none;
+    }
+
+    .nav-toggle {
+      display: none;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #020617;
+      color: #f9fafb;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: clamp(2rem, 4vw, 3rem);
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      background: #0f172a;
+      color: var(--muted);
+      font-size: 0.8rem;
+      border: 1px solid var(--border);
+      margin-bottom: 1rem;
+    }
+
+    .hero-badge span:first-child {
+      font-weight: 500;
+      color: #bfdbfe;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 3.4vw + 1rem, 3rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin: 0 0 0.8rem;
+      color: #f9fafb;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary {
+      border: none;
+      outline: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #f9fafb;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      box-shadow: 0 12px 32px rgba(37, 99, 235, 0.55);
+      transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.7);
+    }
+
+    .btn-ghost {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #020617;
+      color: var(--text);
+      padding: 0.65rem 1.1rem;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    }
+
+    .btn-ghost:hover {
+      background: #0b1120;
+      border-color: #4b5563;
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-meta-pill {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #020617;
+    }
+
+    .hero-card {
+      border-radius: 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 1.3rem 1.4rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-avatar {
+      border-radius: 999px;
+    }
+
+    .hero-card-title {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .hero-card-title span:first-child {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .hero-card-title span:last-child {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .hero-status {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: #14532d;
+      color: #bbf7d0;
+      border: 1px solid #22c55e;
+    }
+
+    .hero-card-body {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-chip {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: #020617;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .hero-metrics {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-metric span:last-child {
+      display: block;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    /* ===== Parcours ===== */
+    .timeline {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow-soft);
+      padding: 1.3rem 1.4rem;
+    }
+
+    .timeline-item {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .timeline-item:last-child {
+      border-bottom: none;
+    }
+
+    .timeline-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .timeline-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-top: 0.2rem;
+      color: var(--text);
+    }
+
+    .timeline-location {
+      font-size: 0.83rem;
+      color: #cbd5f5;
+      margin-top: 0.1rem;
+    }
+
+    .timeline-text {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+
+    /* ===== Compétences ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+      gap: clamp(1.5rem, 3vw, 2.4rem);
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 1.3rem 1.4rem;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: #020617;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .skill-list {
+      list-style: none;
+      margin: 0.4rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0.3rem;
+      font-size: 0.87rem;
+      color: var(--muted);
+    }
+
+    .skill-list li {
+      display: flex;
+      gap: 0.45rem;
+      align-items: flex-start;
+    }
+
+    .skill-list i {
+      margin-top: 0.1rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    /* ===== Projets ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .project-card {
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 1.1rem 1.2rem 1rem;
+      box-shadow: var(--shadow-soft);
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      border-color: var(--accent);
+    }
+
+    .project-tag {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      color: var(--text);
+    }
+
+    .project-text {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .project-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .project-chip {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: #020617;
+      border: 1px solid var(--border);
+    }
+
+    /* ===== Contact ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
+      gap: clamp(1.5rem, 3vw, 2.4rem);
+    }
+
+    .contact-text {
+      font-size: 0.92rem;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 1.3rem 1.4rem;
+      font-size: 0.88rem;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+
+    .contact-label {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--muted);
+    }
+
+    .contact-label i {
+      color: var(--accent);
+    }
+
+    .contact-value a {
+      color: #bfdbfe;
+      text-decoration: none;
+    }
+
+    .contact-value a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      padding: 1.4rem clamp(1.5rem, 5vw, 4rem);
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      background: #020617;
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #e5e7eb;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .skills-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-links.mobile-open {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        padding: 0.7rem clamp(1.5rem, 5vw, 4rem) 0.9rem;
+        background: #020617;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+
+      .nav-cta {
+        justify-content: center;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo-3d">
+          <svg viewBox="0 0 40 40" aria-hidden="true">
+            <defs>
+              <linearGradient id="boltGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#e5f2ff" />
+                <stop offset="100%" stop-color="#60a5fa" />
+              </linearGradient>
+              <linearGradient id="trackGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#38bdf8" />
+                <stop offset="100%" stop-color="#1d4ed8" />
+              </linearGradient>
+            </defs>
+
+            <path d="M10 26 L16 22 L22 24 L28 20"
+                  stroke="url(#trackGrad)"
+                  stroke-width="1.6"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+            <circle cx="10" cy="26" r="1.4" fill="#38bdf8" />
+            <circle cx="22" cy="24" r="1.4" fill="#38bdf8" />
+            <circle cx="28" cy="20" r="1.4" fill="#38bdf8" />
+
+            <path d="M21 9 L14 22 H19 L16 31 L26 18 H21 Z"
+                  fill="url(#boltGrad)" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span>Portfolio</span>
+          <span>Massinissa Charif Harfouche</span>
+        </div>
+      </div>
+
+      <button class="nav-toggle" id="navToggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">À propos</a>
+        <a href="#journey">Parcours</a>
+        <a href="#skills">Compétences</a>
+        <a href="#projects">Projets</a>
+        <a href="#contact">Contact</a>
+        <a href="#projects" class="nav-cta">
+          <i class="fa-solid fa-bolt"></i>
+          Voir mes projets
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="section" id="top">
+      <div class="section-inner hero">
+        <div>
+          <div class="hero-badge">
+            <span>BUT Génie électrique et informatique industrielle – Maîtrise de l’énergie</span>
+            <span>Alternant distribution électrique – Groupe ADP</span>
+          </div>
+
+          <h1 class="hero-title">
+            Ingénierie électrique & <span>maîtrise de l’énergie.
+          </h1>
+
+          <p class="hero-subtitle">
+            Étudiant en BUT Génie électrique et informatique industrielle (parcours Maîtrise de l’énergie), je conçois, câble et teste des systèmes
+            électriques industriels – du chariot chauffant au banc d’essai, en passant par la distribution en aéroport
+            et les études en bureau technique.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+              <i class="fa-solid fa-diagram-project"></i>
+              Découvrir mes projets
+            </button>
+            <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+              <i class="fa-solid fa-paper-plane"></i>
+              Me contacter
+            </button>
+          </div>
+
+          <div class="hero-meta">
+            <div class="hero-meta-pill">BUT3 GEII – UPEC</div>
+            <div class="hero-meta-pill">Alternance – Groupe ADP · CDG</div>
+            <div class="hero-meta-pill">Basé en Île-de-France</div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="hero-card-header">
+            <div class="hero-avatar logo-3d logo-3d--lg">
+              <svg viewBox="0 0 40 40" aria-hidden="true">
+                <defs>
+                  <linearGradient id="boltGradHero" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#e5f2ff" />
+                    <stop offset="100%" stop-color="#60a5fa" />
+                  </linearGradient>
+                  <linearGradient id="trackGradHero" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#38bdf8" />
+                    <stop offset="100%" stop-color="#1d4ed8" />
+                  </linearGradient>
+                </defs>
+
+                <path d="M10 26 L16 22 L22 24 L28 20"
+                      stroke="url(#trackGradHero)"
+                      stroke-width="1.8"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                <circle cx="10" cy="26" r="1.6" fill="#38bdf8" />
+                <circle cx="22" cy="24" r="1.6" fill="#38bdf8" />
+                <circle cx="28" cy="20" r="1.6" fill="#38bdf8" />
+
+                <path d="M21 9 L14 22 H19 L16 31 L26 18 H21 Z"
+                      fill="url(#boltGradHero)" />
+              </svg>
+            </div>
+            <div class="hero-card-title">
+              <span>Profil</span>
+              <span>Électrotechnique & énergie</span>
+            </div>
+            <div class="hero-status">Ouvert aux opportunités</div>
+          </div>
+
+          <div class="hero-card-body">
+            Profil hybride : études électriques, distribution BT, bancs d’essais, sécurité, mise en service et
+            recherche technique autour des systèmes électriques.
+          </div>
+
+          <div class="hero-chip-row">
+            <span class="hero-chip">Chariot chauffant – PID</span>
+            <span class="hero-chip">Salle d’essai ADP</span>
+            <span class="hero-chip">Bus I²C – capteurs</span>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="hero-metric">
+              <span>Projets techniques</span>
+              <span>5+ réalisés</span>
+            </div>
+            <div class="hero-metric">
+              <span>Cadres</span>
+              <span>BTS · BUT GEII · ADP</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- À propos -->
+    <section class="section" id="about">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-eyebrow">À propos</div>
+          <h2 class="section-title">Qui je suis</h2>
+          <p class="section-subtitle">
+            Un profil orienté électrotechnique, avec un équilibre entre terrain, bureau d’études et recherche technique.
+          </p>
+        </div>
+
+        <p style="font-size:0.94rem; color:var(--muted); max-width:720px; line-height:1.6;">
+          Après un BTS Électrotechnique, j’ai intégré un BUT GEII – parcours Maîtrise de l’énergie que je poursuis en
+          alternance au sein du Groupe ADP.  
+          Mon profil est hybride : j’aime autant le travail <strong>terrain</strong> (tests, mise en service, câblage, diagnostics)
+          que le <strong>bureau d’études</strong> (schémas, dimensionnement, analyse) et la <strong>recherche technique</strong> sur les systèmes
+          électriques.  
+          J’interviens sur la distribution électrique, les bancs d’essais, la sécurisation des équipements et la
+          préparation technique de projets. Mon objectif : devenir ingénieur avec une double compétence terrain /
+          études et une forte culture énergie.
+        </p>
+      </div>
+    </section>
+
+    <!-- Parcours -->
+    <section class="section" id="journey">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-eyebrow">Parcours</div>
+          <h2 class="section-title">Formation & expériences</h2>
+          <p class="section-subtitle">
+            Un parcours construit autour de projets concrets, en établissement et sur site industriel.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-meta">2023 – 2026 · Alternance</div>
+            <div class="timeline-title">BUT GEII – Parcours Maîtrise de l’énergie</div>
+            <div class="timeline-location">IUT de Créteil-Vitry (UPEC)</div>
+            <div class="timeline-text">
+              Distribution électrique, électronique de puissance, commande des systèmes, maîtrise de l’énergie,
+              communication industrielle. Projets orientés vers les problématiques énergétiques et la mise en œuvre
+              d’équipements.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-meta">Depuis 2024 · Alternance</div>
+            <div class="timeline-title">Apprenti – Distribution électrique</div>
+            <div class="timeline-location">Groupe ADP – Aéroport CDG</div>
+            <div class="timeline-text">
+              Participation à la mise en place d’une salle d’essai, analyse de TGBT, suivi des interventions, tests de
+              coffrets, alimentation 24 VDC / 48 VAC pour bancs d’essais, intégration de ventouses magnétiques de
+              portes et sécurités associées.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-meta">2021 – 2023</div>
+            <div class="timeline-title">BTS Électrotechnique</div>
+            <div class="timeline-location">Lycée Langevin-Wallon</div>
+            <div class="timeline-text">
+              Études et câblage d’armoires, projet de chariot chauffant (U62), mise en conformité d’installations,
+              essais, mesures et rédaction de dossiers techniques. Première approche complète du cycle de vie d’un
+              projet électrotechnique.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compétences -->
+    <section class="section" id="skills">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-eyebrow">Compétences</div>
+          <h2 class="section-title">Technique & terrain</h2>
+          <p class="section-subtitle">
+            Un socle solide en électrotechnique, automatisme et instrumentation, complété par la pratique en
+            environnement industriel et une bonne maîtrise des outils numériques.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Carte Technique -->
+          <article class="card">
+            <h3>Technique</h3>
+            <div class="badge-row">
+              <span class="badge">Électrotechnique</span>
+              <span class="badge">Mesure & régulation</span>
+              <span class="badge">Automatisme</span>
+              <span class="badge">Outils numériques</span>
+            </div>
+
+            <div style="display:grid;gap:0.9rem;margin-top:0.9rem;font-size:0.9rem;color:var(--muted);">
+
+              <!-- Électrotechnique & énergie -->
+              <div>
+                <div style="font-size:0.86rem;font-weight:600;color:#e5e7eb;margin-bottom:0.2rem;">
+                  Électrotechnique & énergie
+                </div>
+                <ul class="skill-list" style="margin-top:0.3rem;">
+                  <li><i class="fa-solid fa-check"></i> Distribution BT : tableaux, coffrets, protections et sélectivité.</li>
+                  <li><i class="fa-solid fa-check"></i> Schémas de puissance et de commande pour installations industrielles.</li>
+                  <li><i class="fa-solid fa-check"></i> Intégration de modules de sécurité (type Preventa, arrêts d’urgence).</li>
+                </ul>
+              </div>
+
+              <!-- Mesure & instrumentation -->
+              <div>
+                <div style="font-size:0.86rem;font-weight:600;color:#e5e7eb;margin-bottom:0.2rem;">
+                  Mesure & instrumentation
+                </div>
+                <ul class="skill-list" style="margin-top:0.3rem;">
+                  <li><i class="fa-solid fa-check"></i> Chaîne de mesure de température : sonde PT100, relais statiques, régulateurs PID.</li>
+                  <li><i class="fa-solid fa-check"></i> Capteurs sur bus I²C (température, distance, détection), acquisition et affichage LCD.</li>
+                  <li><i class="fa-solid fa-check"></i> Mise en place et exploitation de bancs d’essais électriques.</li>
+                </ul>
+              </div>
+
+              <!-- Automatisme & programmation -->
+              <div>
+                <div style="font-size:0.86rem;font-weight:600;color:#e5e7eb;margin-bottom:0.2rem;">
+                  Automatisme & programmation
+                </div>
+                <ul class="skill-list" style="margin-top:0.3rem;">
+                  <li><i class="fa-solid fa-check"></i> Programmation en C (logique, microcontrôleurs simples, structures de contrôle).</li>
+                  <li><i class="fa-solid fa-check"></i> Grafcet et logique câblée pour commandes séquentielles.</li>
+                  <li><i class="fa-solid fa-check"></i> Bases de Python pour traitement de données et petits outils.</li>
+                </ul>
+              </div>
+
+              <!-- Outils & logiciels -->
+              <div>
+                <div style="font-size:0.86rem;font-weight:600;color:#e5e7eb;margin-bottom:0.2rem;">
+                  Outils & logiciels
+                </div>
+                <ul class="skill-list" style="margin-top:0.3rem;">
+                  <li><i class="fa-solid fa-check"></i> AutoCAD Electrical, WinRelais pour la production de schémas.</li>
+                  <li><i class="fa-solid fa-check"></i> PSIM pour la simulation de convertisseurs et circuits de puissance.</li>
+                  <li><i class="fa-solid fa-check"></i> Suite Microsoft 365 (Word, <strong>Excel</strong>, PowerPoint, Teams, OneDrive) maîtrisée.</li>
+                  <li><i class="fa-solid fa-check"></i> Certification <strong>PIX</strong> validant les compétences numériques.</li>
+                </ul>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Carte Profil professionnel -->
+          <article class="card">
+            <h3>Profil professionnel</h3>
+            <div class="badge-row">
+              <span class="badge">Autonomie</span>
+              <span class="badge">Rigueur</span>
+              <span class="badge">Esprit d’équipe</span>
+            </div>
+
+            <ul style="margin-top:1rem; padding-left:1rem; color:var(--muted); line-height:1.6; font-size:0.9rem;">
+              <li><strong style="color:#f1f5f9;">Rigueur &amp; sécurité :</strong> respect strict des procédures, analyse des risques, méthodes de travail fiables.</li>
+              <li><strong style="color:#f1f5f9;">Travail en équipe :</strong> coordination terrain / bureau d’étude, échanges avec techniciens et encadrants.</li>
+              <li><strong style="color:#f1f5f9;">Communication technique :</strong> schémas, rapports, procédures, présentation claire de solutions.</li>
+              <li><strong style="color:#f1f5f9;">Analyse &amp; résolution de problèmes :</strong> diagnostic électrique, recherche de causes, solutions adaptées.</li>
+              <li><strong style="color:#f1f5f9;">Autonomie :</strong> prise d’initiative, gestion de tâches complètes, adaptation rapide.</li>
+              <li><strong style="color:#f1f5f9;">Capacité de synthèse :</strong> vulgarisation et organisation de l’information complexe.</li>
+            </ul>
+
+            <p style="font-size:0.86rem; color:var(--muted); margin-top:1rem;">
+              J’apprécie autant le travail terrain (tests, câblage, mise en service) que le bureau d’études et la
+              recherche technique sur les systèmes électriques.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projets -->
+    <section class="section" id="projects">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-eyebrow">Projets</div>
+          <h2 class="section-title">Quelques réalisations</h2>
+          <p class="section-subtitle">
+            Une sélection de projets qui illustrent ma façon de travailler : comprendre le besoin, proposer une
+            solution, réaliser, tester et formaliser.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-tag">BTS · Électrotechnique</div>
+            <div class="project-title">Chariot chauffant – régulation & sécurité</div>
+            <p class="project-text">
+              Étude et câblage d’un chariot chauffant monophasé : sonde PT100 rigide, régulateur PID, relais
+              statique, module de sécurité Preventa. Essais fonctionnels et rédaction de la procédure de réception.
+            </p>
+            <div class="project-chip-row">
+              <span class="project-chip">PT100</span>
+              <span class="project-chip">Régulation PID</span>
+              <span class="project-chip">Sécurité Cat. 4</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">Alternance · ADP</div>
+            <div class="project-title">Salle d’essai – coffret d’alimentation</div>
+            <p class="project-text">
+              Contribution à la conception d’une salle d’essai pour équipements électriques : alimentation 230 V /
+              400 V, distribution 24 VDC / 48 VAC, ventouses magnétiques de portes, arrêt d’urgence, tests avant
+              mise à disposition des équipes.
+            </p>
+            <div class="project-chip-row">
+              <span class="project-chip">Distribution BT</span>
+              <span class="project-chip">Coffret d’essai</span>
+              <span class="project-chip">Sécurité machine</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">BUT GEII</div>
+            <div class="project-title">Acquisition multi-capteurs sur bus I²C</div>
+            <p class="project-text">
+              Mise en place d’un bus I²C autour d’un module Cubloc CB280 pour remonter température, distance et
+              détection magnétique vers un affichage LCD 16x2, avec validation des mesures par comparaison.
+            </p>
+            <div class="project-chip-row">
+              <span class="project-chip">I²C</span>
+              <span class="project-chip">Capteurs</span>
+              <span class="project-chip">LCD 16x2</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-eyebrow">Contact</div>
+          <h2 class="section-title">Me joindre</h2>
+          <p class="section-subtitle">
+            Pour une opportunité d’alternance, de stage, un premier poste ou un projet technique ponctuel.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <p class="contact-text">
+            Je cherche à intervenir sur des projets concrets où l’électricité, l’énergie et la sécurité ont un
+            impact direct sur l’exploitation.  
+            N’hésitez pas à me contacter pour échanger : je peux détailler mes projets, fournir des dossiers
+            techniques ou me déplacer pour un entretien.
+          </p>
+
+          <div class="contact-card">
+            <div class="contact-row">
+              <div class="contact-label">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Email</span>
+              </div>
+              <div class="contact-value">
+                <a href="mailto:massinissa.hrf@gmail.com">massinissa.hrf@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-label">
+                <i class="fa-brands fa-linkedin"></i>
+                <span>LinkedIn</span>
+              </div>
+              <div class="contact-value">
+                <a href="https://www.linkedin.com/in/massinissa-charif-harfouche-0364bb2b3/" target="_blank" rel="noreferrer">
+                  Voir mon profil
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-label">
+                <i class="fa-solid fa-file-lines"></i>
+                <span>CV</span>
+              </div>
+              <div class="contact-value">
+                <a href="cv_harfouche_massinissa.pdf" target="_blank" rel="noreferrer">
+                  Télécharger mon CV (PDF)
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2025 · Portfolio de Massinissa Charif Harfouche</span>
+    <div class="footer-links">
+      <a href="#top">Retour en haut</a>
+      <span>·</span>
+      <a href="#projects">Projets</a>
+      <span>·</span>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    // Menu mobile
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('mobile-open');
+    });
+
+    document.querySelectorAll('#navLinks a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('mobile-open');
+      });
+    });
+  </script>
+</body>
+</html>
